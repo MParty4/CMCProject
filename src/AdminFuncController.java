@@ -1,7 +1,7 @@
 /*
  * File: AdminFuncController.java
  */
-
+package CMCProject;
 import java.io.*;
 import java.util.*;
 /**
@@ -13,19 +13,23 @@ import java.util.*;
  */
 
 public class AdminFuncController extends AccountController {
+	private Admin ad;
+	private DBController dbContr;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
-  public AdminFuncController(){
-    super();
+  public AdminFuncController(Admin a){
+    this.ad = a;
+    //super();
+    database = new DBController();
   }
   /*
    * view the list of users
    * 
    * @return list of users
    */ 
-  public List<User> viewUsers(){
-    return null;
+  public List<Account> viewAccount(){
+    return this.dbContr.getAccountList();
   }
   /*
    * Add a new user to database
@@ -35,8 +39,9 @@ public class AdminFuncController extends AccountController {
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String username, String password){
-    return true;
+  public boolean addUser(String username, String password,char type){
+     this.dbContr.addUser(username, password, type);
+     return true;
   }
   
   /*
@@ -48,7 +53,7 @@ public class AdminFuncController extends AccountController {
    * @return user including personal profile
    */ 
   public User viewSpecificUser(String username){
-    return null;
+    return this.dbContr.getSpecificUser(username);
   }
   /*
    * edit a specific user profile including first name, last name, username, password, type, status
@@ -61,7 +66,7 @@ public class AdminFuncController extends AccountController {
    * 
    */ 
   public void editUser(String firstName, String lastName, String password, char type, char status){
-    
+    this.dbContr.editUser(firstName, lastName, password, type, status)
   }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
@@ -69,7 +74,13 @@ public class AdminFuncController extends AccountController {
    * @param userName of the user
    * 
    */ 
-  public void deactivateUser(String username){}
+  public void deactivateUser(String username){
+	  if( dbContr.getSpecificUser(username).isActive==true){
+		  dbContr.getSpecificUser(username).isActive=false;
+		  dbContr.deactivateUser(username);
+		  
+	  }
+  }
   
   /*
    * view the list of universities
@@ -77,7 +88,7 @@ public class AdminFuncController extends AccountController {
    * @return list of universities
    */    
   public List<University> viewUniversities(){
-    return null;
+    return this.dbContr.getUniversities();
   }
   /*
    * add a university
@@ -88,7 +99,7 @@ public class AdminFuncController extends AccountController {
    * 
    */   
   public boolean addUniversity(University u){
-    return true;
+    return this.dbContr.addUniversity;
   }
   
   /*
@@ -100,7 +111,7 @@ public class AdminFuncController extends AccountController {
    */    
   public University viewSpecificUniversity(String univeristyname){
     
-    return null;
+    return this.dbContr.viewSpecificSchool(universityname);
   }
   
   /*
@@ -127,7 +138,8 @@ public class AdminFuncController extends AccountController {
   public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
                                , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                                , int socialScale, int lifeScale, String popMajor){
-    
+    this.dbContr.editUniversity(state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
+			  perEnroll,academinScale, socialScale, lifeScale, popMajor)
   }
   
 }

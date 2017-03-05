@@ -1,7 +1,7 @@
 /*
  * File: DBController.java
  */
-
+package CMCProject;
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.util.*;
@@ -86,7 +86,7 @@ public class DBController {
     * @param lifeScale which is scale of life to update
     * @param popMajor which is the emphases majors of this school to update
    */
-  public void editUniversity(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
+  public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
 
@@ -104,7 +104,7 @@ public class DBController {
    * Gets a specific user.
    * @return user to return
    */
-  public User getSpecificUser(){
+  public User getSpecificUser(String username){
     return null;
   }
   

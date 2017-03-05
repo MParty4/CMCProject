@@ -1,7 +1,7 @@
 /*
  * File: AdminUI.java
  */
-
+package CMCProject;
 import java.io.*;
 import java.util.*;
 /**
@@ -12,20 +12,23 @@ import java.util.*;
  */
 
 public class AdminUI extends AccountUI{
+  public AdminFuncController adContr;
   
   /*
-   * Constructor of the class: Inherited from super class: AccountUI
+   * Constructor of the class
+   * 
+   * @param a who is logging in now
    */
-  public AdminUI(){
-    super();
+  public AdminUI(Admin a){
+    this.adContr = new AdminFuncController(a);
   }
   /*
    * view the list of users
    * 
    * @return list of users
    */  
-  public List<User> viewUsers(){
-    return null;
+  public List<Account> viewAccount(){
+    return this.adContr.viewAccount();
   }
   
   /*
@@ -36,8 +39,8 @@ public class AdminUI extends AccountUI{
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String username, String password){
-  return false;
+  public boolean addUser(String username, String password, char type){
+  return this.adContr.addUser(username, password, type);
   }
   
   /*
@@ -49,7 +52,7 @@ public class AdminUI extends AccountUI{
    * @return user including personal profile
    */   
   public User viewSpecificUser(String username){
-  return null;
+  return this.adContr .viewSpecificUser(username);
   }
   /*
    * edit a specific user profile including first name, last name, username, password, type, status
@@ -61,14 +64,18 @@ public class AdminUI extends AccountUI{
    * @param status which is new to update
    * 
    */  
-  public void editUser(String firstName, String lastName, String password, char type, char status){}
+  public void editUser(String firstName, String lastName, String password, char type, char status){
+	  this.adContr.editUser(firstName, lastName, password, type, status);
+  }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
    * 
    * @param userName of the user
    * 
    */ 
-  public void deactivateUser(String username){}
+  public void deactivateUser(String username){
+	  this.adContr.deactivateUser(username);
+  }
   
   /*
    * view the list of universities
@@ -76,7 +83,7 @@ public class AdminUI extends AccountUI{
    * @return list of universities
    */   
   public List<University> viewUniversities(){
-  return null;
+  return this.adContr.viewUniversities();
   }
   /*
    * add a university
@@ -86,7 +93,9 @@ public class AdminUI extends AccountUI{
    * @return true if add successfully
    * 
    */   
-  public boolean addUniversity(University u){return false;}
+  public boolean addUniversity(University u){
+	  return this.adContr.addUniversity(u);
+  }
   
   /*
    * view a specific university information 
@@ -95,7 +104,9 @@ public class AdminUI extends AccountUI{
    * 
    * @return university including its detailed information
    */    
-  public University viewSpecificUniversity(String univeristyName){return null;}
+  public University viewSpecificUniversity(String univeristyName){
+	  return this.adContr .viewSpecificUniversity(universityName);
+  }
   
   /*
    * edit a specific university information including 
@@ -120,6 +131,9 @@ public class AdminUI extends AccountUI{
    */   
   public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
                                , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                               , int socialScale, int lifeScale, String popMajor){}
+                               , int socialScale, int lifeScale, String popMajor){
+	  this.adContr .editUniversity(state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
+			  perEnroll,academinScale, socialScale, lifeScale, popMajor);
+  }
   
 }

@@ -1,7 +1,7 @@
 /*
  * File: Admin.java
  */
-
+package CMCProject;
 /**
  * Admin Class which includes the basic 
  * information about an Admin extends Account 
@@ -16,4 +16,10 @@ public class Admin extends Account{
   public Admin(){
     super();
   }
+  public Admin(String firstName, String lastName, String userName, String password){
+	  super.setFirstName(firstName);
+	  super.setLastName(lastName);
+	  super.setUsername(userName);
+	  super.setPassword(password);
+	  }
 }
