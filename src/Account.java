@@ -8,27 +8,37 @@ import java.io.*;
  * @version 2/24/17
  */
 public class Account{
-	//kalila
-  //tree k wee a
-  //firstname of user
+  /**
+   * First name of user
+   */
   public String firstName;
-  //lastname of user
+  /**
+   * Las name of user
+   */
   public String lastName;
-  //password of user
+  /**
+   * Password of user
+   */
   private String password;
-  //username of user
+  /**
+   * Username of user
+   */
   public String username;
-  //type of user
+  /**
+   * Type of user
+   */
   public char type;
-  // if user is active = true, false otherwise
+  /**
+   * if user is active or not, true if active, otherwise false
+   */
   public boolean isActive;
   
   /*
    * default constructor
    */
   public Account(){
-    this.username=null;
-    this.password=null;
+    this.username=username;
+    this.password=password;
   }
   
   /*

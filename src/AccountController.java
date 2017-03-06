@@ -10,6 +10,10 @@ import java.io.*;
  */
 public class AccountController {
   
+  /**
+   * Account object for acct controller to communicate to
+   */
+  public Account acct;
   //true if user is logged on
   public boolean isLoggedOn;
   //username of user
@@ -21,8 +25,10 @@ public class AccountController {
    * default constructor
    */
   public AccountController(){
-    this.username=null;
-    this.password=null;
+	this.acct = new Account();
+    this.username=acct.getUsername();
+    this.password=acct.getPassword();
+    this.isLoggedOn = true;
   }
   
   /*
@@ -31,6 +37,7 @@ public class AccountController {
   public AccountController(String username, String password){
     this.username=username;
     this.password=password;
+    this.isLoggedOn = true;
   }
   
   /**
@@ -38,7 +45,10 @@ public class AccountController {
    * @return true if user is logged off, false otherwise
    */ 
   public boolean logOff(){
-    return true;
+	if (acct.isActive==false){
+		return true;
+    }
+	return false;
   }
   
   /**
@@ -48,7 +58,10 @@ public class AccountController {
    * @return true if the user is logged on and authentication is confirmed, otherwise return false
    */
   public boolean logOn(String username, String password){
-    return true;
+	if(acct.isActive==true && acct.getUsername()==username && acct.getPassword()==password){
+		return true;
+	}	
+	return false;
   }
   
   /**
@@ -57,12 +70,16 @@ public class AccountController {
    * @return the character 'a' for admin, or 'u' for user
    */
   public char typeOfUser(String username){
-    return 'a';
+	if(acct.getTypeOfUser()=='a'){
+		return 'a'
+	}
+    return 'u';
   }
   
   /**
    * This method resets the logging in fields for the user.
    */
   public void reset(){ 
+	  acct.removeAll();
   }
 }

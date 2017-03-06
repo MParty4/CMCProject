@@ -10,25 +10,33 @@ import java.io.*;
  * @version 2/24/17
  */
 public class AccountUI{
-  //username of the user
+  
+  /**
+   * accountcontroller created for class
+   */
+  public AccountController acctCtr;
+  /**username of the user
+   */
   String username;
-  //password of the user
+  /**password of the user
+   */
   String password;
   
-   /*
+   /**
    * default constructor
    */
-  public AccountUI(){
-    this.username=null;
-    this.password=null;
+  public AccountUI(Account acct){
+	this.acctCtr = new AccountController(acct);
+	this.username = acct.getUsername();
+	this.password = acct.getPassword();
   }
   
   /*
-   * second constructor which sets username and password for object
+   * Constructor which sets username and password for object
    */
   public AccountUI(String username, String password){
-    this.username=username;
-    this.password=password;
+    this.username = username;
+    this.password = password;
   }
   
   /**
@@ -36,23 +44,29 @@ public class AccountUI{
    * @return true if user is logged off, false otherwise
    */ 
   public boolean logOff(){
-    return false;
+	if (acctCtr.logOff()==true){
+		return true;
+	}
+	return false;
   }
   
   /**
-   * This method is to logon to the cmc system.
+   * This method is to verify whether the user is logged on to the cmc system.
    * @param username the username the user puts in
    * @param password the password the user enters in
    * @return true if the user is logged on and authentication is confirmed, otherwise return false
    */
   public boolean logOn(String username, String password){
-    return true;
+	if(acctCtr.logOn()==true){
+		return true;
+	}
+    return false;
   }
   
   /**
    * This method resets the logging in fields for the user.
    */
   public void reset(){
-  
+	  acctCtr.removeAll();
   }
 }
