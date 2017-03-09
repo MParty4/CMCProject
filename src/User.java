@@ -72,7 +72,7 @@ public class User extends Account{
    */
   public String getFirstName()
   {
-    return "";
+    return this.firstName;
   }
   
   /**
@@ -81,7 +81,7 @@ public class User extends Account{
    */
   public String getLastName()
   {
-    return "";
+    return this.lastName;
   }
   
   /**
@@ -90,7 +90,7 @@ public class User extends Account{
    */
   public String getPassword()
   {
-    return "";
+    return this.password;
   }
   
   /**
@@ -99,7 +99,7 @@ public class User extends Account{
    */
   public String getUserName()
   {
-    return "";
+    return this.username;
   }
   
   /**
@@ -108,7 +108,7 @@ public class User extends Account{
    */
   public char getType()
   {
-    return 'v';
+    return this.type;
   }
   
   /**
