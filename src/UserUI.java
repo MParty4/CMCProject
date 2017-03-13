@@ -13,7 +13,7 @@ import java.util.*;
  */
 
 public class UserUI extends AccountUI{ 
-  
+	public UserFuncController userContr;
   /*
    * Constructor of the class: Inherited from super class: AccountUI
    */
@@ -26,7 +26,7 @@ public class UserUI extends AccountUI{
    * @return list of saved schools
    */
   public List<String> viewSavedSchools(){
-    return null;
+    return this.userContr.viewSavedSchools().;
   }
   
   /**
@@ -34,7 +34,7 @@ public class UserUI extends AccountUI{
    * @param schoolName the name of the school to be removed 
    */ 
   public void removeSavedSchool(String schoolName){
-  
+	  this.userContr.removeSavedSchool(schoolName);
   }
   
   /**
@@ -71,7 +71,7 @@ public class UserUI extends AccountUI{
    * @return list of universities.
    */
   public List<University> viewSearchResults(){
-  return null;
+  return this.userContr.viewSearchResults();
   }
   
   /**
@@ -79,7 +79,7 @@ public class UserUI extends AccountUI{
    * @return university object containing university details
    */
   public University viewSpecificSchool(){
-  return null;
+  return this.userContr.viewSpecificSchool();
   }
   
   /**
@@ -89,21 +89,23 @@ public class UserUI extends AccountUI{
    * @return list of universities to be previewed as reccomendations
    */
   public List<University> viewRecommendation(University u){
-    return null;
+    return this.userContr.viewReccomendation(u);
   }
   
   /**
    * Grants user the ability to save a school to their saved school lists
    * @param schoolName the name of the school to be saved
    */
-  public void saveSchool(String schoolName){}
+  public void saveSchool(String schoolName){
+	  this.userContr.saveSchool(schoolName);
+  }
   
   /**
    * displays the user profile to the user.
    * @return user object to preview user details
    */
   public User viewPersonalProfile(){
-    return null;
+    return this.userContr.viewPersonalProfile();
   }
   
   /**
@@ -113,6 +115,6 @@ public class UserUI extends AccountUI{
    * @param password the user's password
    */   
   public void editPersonalProfile(String firstName, String lastName, String password){
-  
+	  this.userContr.editPersonalProfile(firstName, lastName, password);
   }
 }
