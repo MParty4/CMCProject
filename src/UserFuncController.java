@@ -13,6 +13,10 @@ import java.util.*;
  */
 
 public class UserFuncController extends AccountController {
+	
+	private User user;
+	
+	private DBController dbc;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
@@ -26,7 +30,7 @@ public class UserFuncController extends AccountController {
    */
   public List<String> viewSavedSchools()
   { 
-    return null;
+    return this.user.getSavedSchools();
   }
   
   /**
@@ -35,7 +39,7 @@ public class UserFuncController extends AccountController {
    */
   public void removeSavedSchool(String schoolName)
   {
-    
+    this.user.removeSavedSchool(schoolName);
   }
   
   /**
@@ -78,11 +82,12 @@ public class UserFuncController extends AccountController {
   
   /**
    * Displays specific school selected to user.
+   * @param schoolName the name which will serve as the selected university
    * @return university object containing university details
    */
-  public University viewSpecificSchool()
+  public University viewSpecificSchool(string schoolName)
   {
-    return null;
+    return this.dbc.viewSpecificSchool(schoolName);
   }
   
   /**
@@ -100,7 +105,7 @@ public class UserFuncController extends AccountController {
    */
   public void saveSchool(String schoolName)
   {
-    
+    this.user.addSavedSchool(schoolName);
   }
   
   /**
@@ -109,7 +114,7 @@ public class UserFuncController extends AccountController {
    */
   public User viewPersonalProfile()
   {
-    return null;
+    return this.dbc.getSpecificUser(this.user.getUserName()); //might be wrong?
   }
   
   /**
@@ -120,6 +125,6 @@ public class UserFuncController extends AccountController {
    */
   public void editPersonalProfile(String firstName, String lastName, String password)
   {
-    
+    this.dbc.editPersonalProfile(firstName, lastName, password);
   }
 }
