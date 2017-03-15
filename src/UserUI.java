@@ -36,7 +36,7 @@ public class UserUI extends AccountUI{
   public void removeSavedSchool(String schoolName){
 	  this.userContr.removeSavedSchool(schoolName);
   }
-  
+  //
   /**
    * The search method which sorts known universities depending in 
    * the user's search criteria. 
