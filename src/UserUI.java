@@ -1,7 +1,7 @@
 /*
  * File: UserUI.java
  */
-
+package CMCProject;
 import java.io.*;
 import java.util.*;
 

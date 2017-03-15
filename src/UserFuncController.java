@@ -1,7 +1,7 @@
 /*
  * File: UserFuncController.java
  */
-
+package CMCProject;
 import java.io.*;
 import java.util.*;
 

@@ -1,6 +1,7 @@
 /*
  * File: Account.java
  */
+package CMCProject;
 import java.io.*;
 /**
  * Account - Account home/entity to create an instance of an account in CMC system for a user.

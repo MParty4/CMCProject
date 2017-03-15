@@ -1,7 +1,7 @@
 /*
  * File: University.java
  */
-
+package CMCProject;
 /**
  * University Class which includes all information about
  * a university
