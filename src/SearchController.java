@@ -13,7 +13,7 @@ import java.util.*;
  * @version Feb. 24, 2017
  */
 public class SearchController extends UserFuncController {
-  
+  private DBController dbControl;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
@@ -45,7 +45,9 @@ public class SearchController extends UserFuncController {
   public void search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
-    
+	  this.dbControl.findSpecificUniversity( schoolName,  state,  location,  control,  numOfStu,  perFem,  satVerbal
+              ,  satMath,  price,  finAid,  numOfApp,  perAdmit,  perEnroll,  academicScale
+              ,  socialScale,  lifeScale,  popMajor);
   }
   /**
    * Gives a list of recommendations for the school that was chosen
@@ -54,6 +56,6 @@ public class SearchController extends UserFuncController {
    * @return A list of universities
    */
   public List<University> viewRecommendation(University u){
-    return null;
+    if(u.getNumOfStu() 
   }
 }

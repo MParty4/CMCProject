@@ -15,7 +15,6 @@ public class University {
   /**
    *  University Attributes
    */
-  
   /**
    * schoolName the name of a school
    */
@@ -127,8 +126,28 @@ public class University {
   public University(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                       , int socialScale, int lifeScale, String popMajor) {
-    
+	  this.schoolName = schoolName;
+	  this.state = state; 
+	  this.location = location;
+	  this.control = control;
+	  this.numOfStu = numOfStu; 
+	  this.perFem = perFem; 
+	  this.satVerbal = satVerbal;  
+	  this.satMath = satMath;  
+	  this.price = price;  
+	  this.finAid = finAid; 
+	  this.numOfApp = numOfApp;  
+	  this.perAdmit = perAdmit;
+	  this.perEnroll = perEnroll;  
+	  this.academicScale = academicScale;  
+	  this.socialScale = socialScale;
+	  this.lifeScale = lifeScale;
+	  this.String popMajors = popMajors;
+	  
+
+	  
   }
+
   /**
    * A method to get school name
    *
