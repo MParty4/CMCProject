@@ -1,6 +1,7 @@
 /*
  * File: AccountController.java
  */
+package CMCProject;
 import java.io.*;
 /**
  * AccountController - Controller to control account functionality.

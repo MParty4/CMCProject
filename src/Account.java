@@ -13,7 +13,7 @@ public class Account{
    */
   public String firstName;
   /**
-   * Las name of user
+   * Last name of user
    */
   public String lastName;
   /**
