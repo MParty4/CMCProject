@@ -104,7 +104,7 @@ public class DBController {
    * Gets a specific user.
    * @return user to return
    */
-  public User getSpecificUser(String username){
+  public Account getSpecificUser(String username){
     return null;
   }
   
@@ -161,4 +161,31 @@ public class DBController {
                                     , int socialScale, int lifeScale, String popMajor){
     return null;
   }
+  
+  /**
+   * Remove selected school from user's saved school list
+   * @param schoolName the school name to be removed from the saved school list
+   */   
+  public void removeSavedSchool(User u,String schoolName)
+  {
+    
+  } 
+  /**
+   * Adds a saved school to the saved school list
+   * @param schoolName the name of school to be added
+   */  
+  public void addSavedSchool(User u, String schoolName)
+  {
+    
+  }
+  
+  /**
+   * Method to retrieve list of saved schools
+   * @ return list of saved schools
+   */
+  public List<University> getSavedSchools(User u)
+  {
+    return null;
+  }
+  
 }

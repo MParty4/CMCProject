@@ -17,8 +17,9 @@ public class UserUI extends AccountUI{
   /*
    * Constructor of the class: Inherited from super class: AccountUI
    */
-  public UserUI(){
-    super();
+  public UserUI(User u){
+    this.userContr = new UserController(u);
+    
   }
   
   /**
@@ -63,7 +64,8 @@ public class UserUI extends AccountUI{
   public void search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
-    
+    return this.userContr .search(schoolName, state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
+			  perEnroll,academinScale, socialScale, lifeScale, popMajor);
   }
   
   /**

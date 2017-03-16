@@ -17,11 +17,15 @@ public class UserFuncController extends AccountController {
 	private User user;
 	
 	private DBController dbc;
+	
+	private SearchController sc;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
-  public UserFuncController(){
-    super();
+  public UserFuncController(User u){
+    this.user = u;
+    dbc = new DBController();
+    search = new SearchController();
   }
   
   /**
@@ -30,7 +34,7 @@ public class UserFuncController extends AccountController {
    */
   public List<String> viewSavedSchools()
   { 
-    return this.user.getSavedSchools();
+    return this.dbc.getSavedSchools(this.user);
   }
   
   /**
@@ -39,7 +43,7 @@ public class UserFuncController extends AccountController {
    */
   public void removeSavedSchool(String schoolName)
   {
-    this.user.removeSavedSchool(schoolName);
+    this.dbc.removeSavedSchool(this.user, schoolName);
   }
   
   /**
@@ -65,19 +69,41 @@ public class UserFuncController extends AccountController {
    * @param popMajor which is the emphases majors of this school of searching condition
    * @return list of schools matching search
    */
-  public void search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
+  public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
-    
+    this.sc.search(schoolName, state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
+			  perEnroll,academinScale, socialScale, lifeScale, popMajor)
   }
   
   /**
    * Displays a list of universities meeting the search criteria for the user. 
    * @return list of universities.
    */
-  public List<University> viewSearchResults() 
+  public List<String> viewSearchResults(University u) 
   {
-    return null;
+    List<String> dis = new ArrayList<String>();
+    
+    dis.add(u.getName());
+    dis.add(u.getState());
+    dis.add(u.getLocation());
+    dis.add(u.getControl());
+    dis.add(Integer.toString(u.getName()));
+    dis.add(Double.toString(s.getNumStudents()));
+    dis.add(Integer.toString(s.getPerfemale()));
+    dis.add(Integer.toString(s.getSATVerbal()));
+    dis.add(Integer.toString(s.getSATMath()));
+    dis.add(Integer.toString(s.getPrice()));
+    dis.add(Integer.toString(s.getFinAid()));
+    dis.add(Integer.toString(s.getNumOfApp()));
+    dis.add(Double.toString(s.getPerAdmin()));
+    dis.add(Double.toString(s.getPerEnroll()));
+    dis.add(Integer.toString(s.getAcedmicScale()));
+    dis.add(Integer.toString(s.getSocialScale()));
+    dis.add(Integer.toString(s.getLifeScale()));
+    dis.add(Integer.toString(s.getPopMajor()));
+    
+    return dis;
   }
   
   /**
@@ -96,7 +122,7 @@ public class UserFuncController extends AccountController {
    * @return list of universities with partial info
    */
   public List<University> viewRecommendation(University u){
-    return null;
+    return sc.viewRecommendation(u);
   }
   
   /**
@@ -105,7 +131,7 @@ public class UserFuncController extends AccountController {
    */
   public void saveSchool(String schoolName)
   {
-    this.user.addSavedSchool(schoolName);
+    this.dbc.addSavedSchool(this.user, schoolName);
   }
   
   /**

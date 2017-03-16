@@ -37,10 +37,10 @@ public class Account{
   /*
    * default constructor
    */
-  public Account(){
-    this.username=username;
-    this.password=password;
-  }
+//  public Account(){
+//    this.username=username;
+//    this.password=password;
+//  }
   
   /*
    * second constructor which sets username and password for object
@@ -88,5 +88,20 @@ public class Account{
    */
   public char getTypeOfUser(){
     return this.type;
+  }
+  
+  /**
+   * gets account active status
+   * @return true if isActive
+   */
+  public boolean isActive(){
+	  return isActive
+  }
+  
+  /**
+   * sets account status
+   */
+  public void setStatus(boolean newStatus){
+	  this.isActive =newStatus;
   }
 }

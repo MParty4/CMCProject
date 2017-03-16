@@ -48,24 +48,7 @@ public class User extends Account{
     this.lastName = lastName;
   }
   
-  /**
-   * Adds a saved school to the saved school list
-   * @param schoolName the name of school to be added
-   */  
-  public void addSavedSchool(String schoolName)
-  {
-    
-  }
-  
-  /**
-   * Method to retrieve list of saved schools
-   * @ return list of saved schools
-   */
-  public List<University> getSavedSchools()
-  {
-    return null;
-  }
-  
+ 
   /**
    * Method to return the user's firstName
    * @return user firstname
@@ -111,12 +94,5 @@ public class User extends Account{
     return this.type;
   }
   
-  /**
-   * Remove selected school from user's saved school list
-   * @param schoolName the school name to be removed from the saved school list
-   */   
-  public void removeSavedSchool(String schoolName)
-  {
-    
-  } 
+  
 }

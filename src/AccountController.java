@@ -15,32 +15,37 @@ public class AccountController {
    * Account object for acct controller to communicate to
    */
   public Account acct;
+  /**
+   * DBController object for acc controller to search data
+   */
+  public DBController datebase;
   //true if user is logged on
   public boolean isLoggedOn;
   //username of user
-  public String username;
+  //public String username;
   //password of user
-  private String password;
+ // private String password;
   
   /*
    * default constructor
    */
-  public AccountController(){
-	this.acct = new Account();
-    this.username=acct.getUsername();
-    this.password=acct.getPassword();
-    this.isLoggedOn = true;
+  public AccountController(Account acct){
+	this.acct = acc;
+//    this.username=acct.getUsername();
+//    this.password=acct.getPassword();
+//    this.isLoggedOn = true;
+	this.database = new DBController();
   }
   
   /*
    * second constructor which sets username and password for object
    */
-  public AccountController(String username, String password){
-    this.username=username;
-    this.password=password;
-    this.isLoggedOn = true;
-  }
-  
+//  public AccountController(String username, String password){
+//    this.username=username;
+//    this.password=password;
+//    this.isLoggedOn = true;
+//  }
+//  
   /**
    * This method is to test if the user is logged off or not. //update in class diagram
    * @return true if user is logged off, false otherwise
@@ -59,10 +64,32 @@ public class AccountController {
    * @return true if the user is logged on and authentication is confirmed, otherwise return false
    */
   public boolean logOn(String username, String password){
-	if(acct.isActive==true && acct.getUsername()==username && acct.getPassword()==password){
-		return true;
-	}	
-	return false;
+//	if(acct.isActive==true && acct.getUsername()==username && acct.getPassword()==password){
+//		return true;
+//	}	
+//	return false;
+	  Account thisPerson = database.getSpecificUser(username);
+	  if(!(thisPerson==null)){
+		  if(password.equals(thisPerson.getpassword())){
+			 if(thisPerson.isActive()){
+				 if(thisPerson.type.equals("a")){
+					 return new AdminUI((Admin)thisPerson);
+				 }
+				 else{
+					 return new UserUI((UerUI)thisPerson);
+				 }
+			 }
+			 else{
+				 throw new IllegalArgumentException("Person is deactived");
+			 }
+		  }
+		  else{
+			  throw new IllegalArgumentException("Password is not correct");
+		  }
+	  }
+	  else{
+		  throw new IllegalArgumentException("Account does not exist");
+	  }
   }
   
   /**
@@ -79,8 +106,8 @@ public class AccountController {
   
   /**
    * This method resets the logging in fields for the user.
-   */
-  public void reset(){ 
-	  acct.removeAll();
-  }
+   */    
+//  public void reset(){ 
+//	  acct.removeAll();
+//  }    DO RESET LASTLY
 }
