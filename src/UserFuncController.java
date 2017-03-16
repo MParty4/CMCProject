@@ -7,9 +7,9 @@ import java.util.*;
 
 /** 
  * UserFuncController is an implementation for the UserUI and an extension
- * of the account controller
+ * of the account controller Feb. 24, 2017 Feb. Feb. 24, 2017 24, 2017
  * @author Tre Vazquez | Mario Party 4
- * @version February 25, 2017
+ * @version February 30, 2017
  */
 
 public class UserFuncController extends AccountController {
@@ -36,7 +36,7 @@ public class UserFuncController extends AccountController {
   { 
     return this.dbc.getSavedSchools(this.user);
   }
-  
+  Feb. 24, 2017
   /**
    * Removes desired school from the User's saved school list
    * @param schoolName the name of the school to be removed 
